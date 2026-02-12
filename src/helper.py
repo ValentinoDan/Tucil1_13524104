@@ -48,6 +48,26 @@ def readFile(file):
         print(f"Error: File {file} tidak ditemukan")
         return None
 
+def validate(board):
+    n = board.row
+
+    # Wajib persegi
+    for line in board.board:
+        if len(line) != n:
+            return False
+        
+    # Jumlah daerah maksimal sama dengan sisi
+    place = []
+    for i in range(n):
+        for j in range(n):
+            if board.board[i][j] not in place:
+                place.append(board.board[i][j])
+    
+    if len(place) > n:
+        return False
+    
+    return True
+
 # Warna teks
 def textColor(letter):
     number = colors.get(letter)
@@ -60,6 +80,6 @@ def showResult(board):
             if board.board[i][j] == "Q":
                 print("#", end="")
             else:
-                print(board.board[i][j], end="")
+                print(textColor(board.board[i][j]), end="")
         print()
 
