@@ -6,7 +6,7 @@ class Board:
     
     # Update 1 posisi di board menjadi Queen
     def update(self, row, col):
-        self.board[row][col] = "Q"
+        self.board[row][col] = "#"
 
     # Remove Queen (jadi kosong)
     def remove(self, row, col):

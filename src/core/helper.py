@@ -1,4 +1,4 @@
-from board import Board
+from .board import Board
 
 # Kode warna
 colors = {
@@ -13,18 +13,13 @@ colors = {
 
 def validate(board):
     n = board.row
-
-    # Wajib persegi
-    for line in board.board:
-        if len(line) != n:
-            return False
         
     # Jumlah daerah maksimal sama dengan sisi
     place = []
     for i in range(n):
         for j in range(n):
-            if board.board[i][j] not in place:
-                place.append(board.board[i][j])
+            if board.board[i][j].upper() not in place:
+                place.append(board.board[i][j].upper())
     
     if len(place) > n:
         return False
@@ -89,7 +84,7 @@ def textColor(letter):
 def showResult(board):
     for i in range(board.row):
         for j in range(board.col):
-            if board.board[i][j] == "Q":
+            if board.board[i][j] == "#":
                 print("#", end="")
             else:
                 print(textColor(board.board[i][j]), end="")

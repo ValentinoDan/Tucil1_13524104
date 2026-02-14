@@ -1,17 +1,14 @@
-from board import Board
-from solver import solve
-from helper import readFile, showResult, validate
+from core.board import Board
+from core.solver import solve
+from core.helper import readFile, showResult
 import os
 
 file = input("Silahkan masukkan nama file : ")
 path = os.path.join("test", file)
-board = readFile(path)
+board, error = readFile(f"{path}.txt")
 
 if board is None:
-    exit(1)
-
-if not validate(board):
-    print("Papan wajib berbentuk persegi dan jumlah daerah harus lebih kecil sama dengan sisi")
+    print(f"Error: {error}")
     exit(1)
 
 found, caseCount, time = solve(board)
@@ -19,7 +16,7 @@ found, caseCount, time = solve(board)
 if found:
     showResult(board)
     print()
-    print(f"Waktu pencarian: {time} ms")
+    print(f"Waktu pencarian: {time:.2f} ms")
     print(f"Banyak kasus yang ditinjau: {caseCount} kasus")
 else:
     print("Solusi tidak ditemukan")
