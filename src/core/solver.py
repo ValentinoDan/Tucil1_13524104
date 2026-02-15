@@ -58,7 +58,7 @@ def solve(board, update=None, interval=None, backtracks=False):
                         
                         for i in range(n):
                             if pos[i] != -1:
-                                tempBoard.board[i][pos[i]] = '#'
+                                tempBoard.update(i, pos[i])
                         update(tempBoard)
                         time.sleep(1e-6)
 
@@ -100,7 +100,7 @@ def solve(board, update=None, interval=None, backtracks=False):
                         tempBoard.board[i][j] = letters[i][j]
                 
                 for i in range(n):
-                    tempBoard.board[i][pos[i]] = '#'
+                    tempBoard.update(i, pos[i])
                 update(tempBoard)
             
             if isValid(pos, letters, n):
