@@ -1,5 +1,7 @@
 # Tucil Strategi Algoritma 1
 
+## Valentino Daniel Kusumo - 13524104
+
 ## Deskripsi Program
 Program ini ditujukan untuk mencari solusi dari *game* Queens LinkedIn dengan menggunakan algoritma Brute Force, tetapi juga ada kemungkinan permainan tidak memiliki solusi jika tidak ada konfigurasi yang memenuhi.
 
@@ -20,7 +22,6 @@ Program ini ditujukan untuk mencari solusi dari *game* Queens LinkedIn dengan me
 5. Jalankan perintah berikut
     ```
     python src/maingui.py
-
     ```
 
 ## Cara Menjalankan Program (tanpa GUI -- *tidak selengkap GUI*)
@@ -29,14 +30,12 @@ Program ini ditujukan untuk mencari solusi dari *game* Queens LinkedIn dengan me
 2. Install *library* yang dibutuhkan
     ```
     pip install flet pillow
-
     ```
 3. Lakukan clone repository
 4. Masuk ke folder utama project
 5. Jalankan perintah berikut
     ```
     python src/maincli.py
-
     ```
 
 ![cover](cover.png)
