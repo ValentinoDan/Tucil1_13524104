@@ -49,6 +49,19 @@ def solve(board, update=None, interval=None, backtracks=False):
                 if isValidBacktrack(pos, letters, row, col):
                     pos[row] = col
 
+                    # Live update
+                    if update and interval and caseCount % interval == 0:
+                        tempBoard = Board(n, n)
+                        for i in range(n):
+                            for j in range(n):
+                                tempBoard.board[i][j] = letters[i][j]
+                        
+                        for i in range(n):
+                            if pos[i] != -1:
+                                tempBoard.board[i][pos[i]] = '#'
+                        update(tempBoard)
+                        time.sleep(1e-6)
+
                     if backtrack(row+1):
                         return True
                     
@@ -80,7 +93,7 @@ def solve(board, update=None, interval=None, backtracks=False):
                 x //= n
             
             # Live update
-            if update and caseCount % interval == 0:
+            if update and interval and caseCount % interval == 0:
                 tempBoard = Board(n, n)
                 for i in range(n):
                     for j in range(n):
