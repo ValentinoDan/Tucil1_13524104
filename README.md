@@ -12,13 +12,16 @@ Program ini ditujukan untuk mencari solusi dari *game* Queens LinkedIn dengan me
 
 ## Cara Menjalankan GUI
 1. Pastikan Python sudah terinstall (disarankan Python 3.10 atau lebih baru).
+
 2. Install *library* yang dibutuhkan
     ```
     pip install flet pillow
-
     ```
+    
 3. Lakukan clone repository
+
 4. Masuk ke folder utama project
+
 5. Jalankan perintah berikut
     ```
     python src/maingui.py
@@ -27,12 +30,16 @@ Program ini ditujukan untuk mencari solusi dari *game* Queens LinkedIn dengan me
 ## Cara Menjalankan Program (tanpa GUI -- *tidak selengkap GUI*)
 
 1. Pastikan Python sudah terinstall (disarankan Python 3.10 atau lebih baru).
+
 2. Install *library* yang dibutuhkan
     ```
     pip install flet pillow
     ```
+    
 3. Lakukan clone repository
+
 4. Masuk ke folder utama project
+
 5. Jalankan perintah berikut
     ```
     python src/maincli.py
