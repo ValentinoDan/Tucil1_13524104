@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 result*.txt
-*.png
+game.png
+trial.png
