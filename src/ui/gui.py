@@ -96,6 +96,9 @@ def main(page: ft.Page):
         animate=ft.Animation(300, "ease")
     )
 
+    # checkbox backtrack
+    checkbox = ft.Checkbox(label = "Enable Backtracking (Faster & Recommended)", value = False)
+
     def validateBoard():
         if not boardInput.value or not boardInput.value.strip():
             return None, "Silakan masukkan konfigurasi board terlebih dahulu!"
@@ -271,6 +274,8 @@ def main(page: ft.Page):
             result.color = "#FCD34D"
             page.update()
             return
+        
+        backtracks = checkbox.value # ambil value dari checkbox
 
         n = board.row
         boardDisplay.controls.clear()
@@ -286,7 +291,7 @@ def main(page: ft.Page):
             boardDisplay.controls.append(createBoardGrid(tempBoard))
             page.update()
         
-        found, caseCount, time = solve(board, update=updateProgress, interval=1.5**n)
+        found, caseCount, time = solve(board, update=updateProgress, interval=1.5, backtracks=backtracks)
 
         if found:
             boardDisplay.controls.clear()
@@ -360,7 +365,7 @@ def main(page: ft.Page):
                                 ),
                                 ft.ElevatedButton(
                                     "Export Image",
-                                    icon=ft.Icons.SHARE,
+                                    icon=ft.Icons.IMAGE,
                                     on_click=exportImage,
                                     style=ft.ButtonStyle(
                                         color=ft.Colors.WHITE,
@@ -368,6 +373,7 @@ def main(page: ft.Page):
                                     )
                                 ),
                             ], spacing=10),
+                            checkbox,
                             fileName,
                         ], spacing=15),
                         padding=20,
