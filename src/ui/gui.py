@@ -215,7 +215,7 @@ def main(page: ft.Page):
                 draw.rectangle([x1, y1, x2, y2], fill=grid[i][j], outline="black")
 
                 if (i, j) in queens:
-                    img.paste(crown, (x1 + cell//4, y1 + cell//4), crown)
+                    img.paste(crown, (int(x1 + cell/3.7), y1 + cell//4), crown)
 
         folder = "result"
         if not os.path.exists(folder):
