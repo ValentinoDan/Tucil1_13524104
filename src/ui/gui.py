@@ -181,7 +181,7 @@ def main(page: ft.Page):
         
         n = board.row
         
-        found, count, time = solve(board)
+        found, count, time = solve(board, None, None, backtracks=True)
         if not found:
             result.value = "Solusi tidak ditemukan, tidak bisa di-export"
             resultContainer.bgcolor = "#7F1D1D"
@@ -201,7 +201,7 @@ def main(page: ft.Page):
                     queens.append((i, j))
 
         cell = 80
-        font = ImageFont.truetype("seguiemj.ttf", cell // 2)
+        crown = Image.open("font/crown.png").resize((cell // 2, cell // 2))
         img = Image.new("RGB", (n * cell, n * cell))
         draw = ImageDraw.Draw(img)
 
@@ -215,7 +215,7 @@ def main(page: ft.Page):
                 draw.rectangle([x1, y1, x2, y2], fill=grid[i][j], outline="black")
 
                 if (i, j) in queens:
-                    draw.text((x1 + cell // 6, y1 + cell // 4), "👑", font=font)
+                    img.paste(crown, (x1 + cell//4, y1 + cell//4), crown)
 
         folder = "result"
         if not os.path.exists(folder):
